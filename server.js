@@ -1,21 +1,18 @@
 import express from 'express';
-import mockData from './mock-json.js';
-import cors from 'cors'
+import cors from 'cors';
+import mockJson from './mock-json.js';
+
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-const mockDataValue = mockData
-
+const port = 3000;
 app.use(cors());
 
-app.get('/api/spaces', (req, res) => {
-  res.json(mockDataValue);
+
+app.get('/workspace', (req, res) => {
+  res.json(mockJson);
 });
 
-app.get('/', (req, res) => {
-  res.send('BHIVE Workspace Public API');
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Start server
+app.listen(port, () => {
+  console.log(`🚀 Server running at http://localhost:${port}`);
 });
